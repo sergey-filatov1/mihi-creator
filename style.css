@@ -1,0 +1,422 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+
+    font-family: Arial, sans-serif;
+    color: #38220c;
+
+    background: linear-gradient(135deg,
+            #fffaf0,
+            #f4e3c8,
+            #fff8eb);
+}
+
+/* =========================
+   ЗАГОЛОВОК
+========================= */
+
+.header {
+    text-align: center;
+    padding: 50px 20px 30px;
+}
+
+.header h1 {
+    margin: 0;
+
+    font-family: Georgia, serif;
+    font-size: 48px;
+
+    color: #8b5e20;
+}
+
+.header p {
+    margin-top: 12px;
+
+    font-size: 18px;
+    color: #80613a;
+}
+
+/* =========================
+   ОСНОВНАЯ ОБЛАСТЬ
+========================= */
+
+.main {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* =========================
+   ДВА КОНСТРУКТОРА
+========================= */
+
+.constructors {
+    display: grid;
+
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+
+    gap: 30px;
+}
+
+.constructor-card {
+    padding: 35px 25px;
+
+    text-align: center;
+
+    background: rgba(255, 255, 255, 0.65);
+
+    border: 1px solid #d5ad65;
+    border-radius: 20px;
+
+    box-shadow: 0 8px 25px rgba(133, 91, 32, 0.12);
+}
+
+.constructor-card h2 {
+    margin-top: 0;
+
+    font-family: Georgia, serif;
+    font-size: 27px;
+
+    color: #8b5e20;
+}
+
+.constructor-card p {
+    margin: 20px 0 30px;
+
+    font-size: 16px;
+    color: #725432;
+}
+
+/* =========================
+   КНОПКИ
+========================= */
+
+.constructor-card button {
+    width: 100%;
+
+    padding: 15px 20px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: linear-gradient(135deg,
+            #e5b85d,
+            #c58b2e);
+
+    color: #38220c;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+}
+
+.constructor-card button:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 5px 15px rgba(133, 91, 32, 0.2);
+}
+
+/* =========================
+   РЕДАКТОР
+========================= */
+
+#editor {
+    margin-top: 30px;
+}
+
+/* =========================
+   ФОРМА СЕРТИФИКАТА
+========================= */
+
+#certificate-form {
+    display: flex;
+
+    flex-direction: column;
+
+    gap: 12px;
+
+    max-width: 650px;
+
+    margin: 25px auto 0;
+
+    text-align: left;
+}
+
+#certificate-form label {
+    margin-top: 8px;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    color: #725432;
+}
+
+#certificate-form input {
+    width: 100%;
+
+    min-height: 48px;
+
+    padding: 12px 14px;
+
+    border: 1px solid #d5ad65;
+    border-radius: 10px;
+
+    background: #fffdf9;
+
+    font-size: 16px;
+
+    color: #38220c;
+}
+
+#certificate-form input:focus {
+    outline: 2px solid #d5ad65;
+    outline-offset: 2px;
+}
+
+/* Кнопка внутри формы */
+
+#certificate-form button {
+    margin-top: 12px;
+}
+
+/* =========================
+   ПРЕДВАРИТЕЛЬНОЕ ФОТО
+========================= */
+
+#photo-preview {
+    text-align: center;
+}
+
+#photo-preview img {
+    display: block;
+
+    max-width: 250px;
+    max-height: 300px;
+
+    margin: 20px auto;
+
+    object-fit: contain;
+
+    border-radius: 12px;
+    border: 2px solid #d5ad65;
+}
+
+/* =========================
+   РЕЗУЛЬТАТ СЕРТИФИКАТА
+========================= */
+
+#certificate-result {
+    width: 100%;
+
+    margin: 40px auto;
+}
+
+/* Обертка сертификата */
+
+.certificate {
+    width: 100%;
+
+    max-width: 480px;
+
+    margin: 0 auto;
+}
+
+/* Рабочая область сертификата */
+
+.certificate-frame {
+    position: relative;
+
+    width: 100%;
+
+    aspect-ratio: 960 / 1280;
+
+    overflow: hidden;
+}
+
+/* =========================
+   ФОНОВЫЙ ШАБЛОН
+========================= */
+
+.certificate-background {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: fill;
+
+    z-index: 1;
+}
+
+/* =========================
+   ФОТО ПАРТНЕРА
+========================= */
+
+.certificate-photo {
+    position: absolute;
+
+    left: 44%;
+    top: 27%;
+
+    width: 53%;
+    height: 43%;
+
+    object-fit: cover;
+
+    object-position: center;
+
+    z-index: 2;
+}
+
+/* =========================
+   ИМЯ И ФАМИЛИЯ
+========================= */
+
+.certificate-name {
+    position: absolute;
+
+    left: 5%;
+    top: 15%;
+
+    width: 55%;
+
+    margin: 0;
+
+    text-align: center;
+
+    font-family: Arial, sans-serif;
+
+    font-size: clamp(12px, 3vw, 24px);
+    font-weight: bold;
+
+    color: #000;
+
+    z-index: 3;
+}
+
+/* =========================
+   СТАТУС
+========================= */
+
+.certificate-status {
+    position: absolute;
+
+    left: 8%;
+    top: 31%;
+
+    width: 43%;
+
+    margin: 0;
+
+    text-align: center;
+
+    font-size: clamp(12px, 2.5vw, 22px);
+    font-weight: bold;
+
+    color: #000;
+
+    z-index: 3;
+}
+
+/* =========================
+   ПРОЦЕНТ МАРКЕТИНГ-ПЛАНА
+========================= */
+
+.certificate-percent {
+    position: absolute;
+
+    left: 13%;
+    top: 57%;
+
+    width: 34%;
+
+    margin: 0;
+
+    text-align: center;
+
+    font-size: clamp(24px, 7vw, 55px);
+    font-weight: bold;
+
+    color: #c58b2e;
+
+    z-index: 3;
+}
+
+/* =========================
+   АДАПТАЦИЯ ДЛЯ ТЕЛЕФОНА
+========================= */
+
+@media (max-width: 650px) {
+
+    .header {
+        padding-top: 35px;
+    }
+
+    .header h1 {
+        font-size: 36px;
+    }
+
+    .constructors {
+        grid-template-columns: 1fr;
+
+        gap: 20px;
+    }
+
+    .constructor-card {
+        padding: 30px 20px;
+    }
+
+    .certificate {
+        max-width: 100%;
+    }
+
+}
+
+/* =====================================
+   КОНСТРУКТОР ЗАПРОШЕННЯ
+===================================== */
+
+#invitation-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    max-width: 500px;
+    margin: 20px auto 0;
+}
+
+#invitation-form label {
+    text-align: left;
+    font-weight: 600;
+}
+
+#invitation-form input[type="text"],
+#invitation-form input[type="file"] {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #d8b16a;
+    border-radius: 8px;
+    background: #fffaf2;
+}
+
+#invitation-form button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #e6b85c, #c58b2d);
+    color: #2b1b08;
+    font-weight: 600;
+    cursor: pointer;
+}
